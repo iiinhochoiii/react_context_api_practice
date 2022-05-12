@@ -18,4 +18,11 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     text-decoration: none;
   }
+
+  button {
+    cursor: pointer;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+  }
 `;

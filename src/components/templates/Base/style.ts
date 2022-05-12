@@ -1,3 +1,12 @@
 import styled from 'styled-components';
+import { palette } from 'styled-tools';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  max-width: 100%;
+`;
+
+export const Content = styled.div`
+  max-width: 100%;
+  display: flex;
+  background-color: ${palette('Gray', 2)};
+`;

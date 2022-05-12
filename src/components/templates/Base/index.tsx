@@ -11,7 +11,7 @@ const BaseTemplates = (props: Props) => {
   return (
     <S.Container>
       <Header />
-      {children}
+      <S.Content>{children}</S.Content>
     </S.Container>
   );
 };

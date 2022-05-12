@@ -4,6 +4,7 @@ const color = {
   Orange: '#FB842D',
   Yellow: '#FFD400',
   Gray: ['#9A9BA7', '#C8CAD2', '#F2F3F7'],
+  Dark_Gray: '#727585',
 };
 
 export const theme = {
@@ -13,6 +14,7 @@ export const theme = {
     Orange: color.Orange,
     Yellow: color.Yellow,
     Gray: color.Gray,
+    Dark_Gray: color.Dark_Gray,
   },
   button: {
     Prime: `
@@ -32,7 +34,7 @@ export const theme = {
         color: ${color.Black};
     `,
     Normal: `
-        background-color: none;
+        background: none;
         color: ${color.Black};
     `,
   },
