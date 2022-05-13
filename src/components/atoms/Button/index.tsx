@@ -5,6 +5,7 @@ export interface Props extends HTMLAttributes<HTMLButtonElement> {
   children?: React.ReactNode;
   buttonType?: string;
   sx?: React.CSSProperties;
+  disabled?: boolean;
 }
 
 const Button = (props: Props) => {

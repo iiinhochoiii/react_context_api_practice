@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { palette } from 'styled-tools';
 
-export const CardContainer = styled.article`
-  width: 27.5%;
+export const CardCartContainer = styled.article`
+  width: 44%;
   background-color: ${palette('White')};
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.02);
   border-radius: 16px;
   padding: 12px 17px 16px 16px;
-  margin: 0 25px 48px 25px;
+  margin: 0 0 48px 0;
 `;
 
 export const Content = styled.div`
@@ -37,7 +37,7 @@ export const ImageWrap = styled.div`
 `;
 
 export const InfoWrap = styled.div`
-  width: calc(100% - 100px);
+  width: calc(100% - 200px);
 `;
 
 interface InfoTitleProps {
@@ -67,6 +67,7 @@ export const InfoLabel = styled.label`
 
 export const InfoFlexBox = styled.div`
   display: flex;
+  margin: 12px 0;
 `;
 
 export const ContentBottom = styled.div`

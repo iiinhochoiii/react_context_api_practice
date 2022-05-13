@@ -4,7 +4,11 @@ import { Props } from './index';
 
 const buttonStyles = css<Props>`
   ${(props) => {
-    return theme(`button.${props.buttonType || 'Default'}`);
+    if (props.disabled) {
+      return theme(`button.${'Disabled'}`);
+    } else {
+      return theme(`button.${props.buttonType || 'Default'}`);
+    }
   }}
 `;
 export const Container = styled.button<Props>`
@@ -13,7 +17,13 @@ export const Container = styled.button<Props>`
   font-size: 14px;
   font-weight: 700;
 
-  &:hover {
-    opacity: 0.7;
-  }
+  ${(props) => {
+    if (!props.disabled) {
+      return css`
+        &:hover {
+          opacity: 0.7;
+        }
+      `;
+    }
+  }}
 `;

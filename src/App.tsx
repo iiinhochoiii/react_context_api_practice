@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomePage from './pages/Home';
+import { HomePage, CartPage } from './pages';
+
 import { GlobalStyle } from 'styles/global-styles';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'styles/theme';
@@ -14,6 +15,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/cart" element={<CartPage />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

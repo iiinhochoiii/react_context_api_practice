@@ -7,7 +7,7 @@ import { Card } from 'components/organisms';
 import useApi from 'hooks/useApi';
 import useLocations from 'hooks/useLocations';
 import { Fruits } from 'interfaces/models/fruits';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { groupBy } from 'utils/groupby';
 
 const HomePage = () => {
@@ -15,8 +15,8 @@ const HomePage = () => {
 
   const navigate = useNavigate();
   const { data, loading, getList } = useApi<Fruits>('fruits');
-  const [fruits, setFruits] = useState<Fruits[]>([]);
   const { location } = useLocations();
+  const [fruits, setFruits] = useState<Fruits[]>([]);
 
   useEffect(() => {
     if (data.length > 0) {
@@ -57,19 +57,16 @@ const HomePage = () => {
             sx={{ margin: '0 16px 0 19px' }}
             onClick={() => navigate('/?tab=normal')}
           >
-            <Link to="/?tab=nomal">일반 과일</Link>
-            {/* 일반 과일 */}
+            일반 과일
           </Button>
           <Button
             buttonType={location?.tab === 'prime' ? 'Primary' : 'Normal'}
             onClick={() => navigate('/?tab=prime')}
           >
-            <Link to="/?tab=prime">
-              <S.ButtonContent>
-                <PrimeText sx={{ margin: '0 6px 0 0' }} />
-                과일
-              </S.ButtonContent>
-            </Link>
+            <S.ButtonContent>
+              <PrimeText sx={{ margin: '0 6px 0 0' }} />
+              과일
+            </S.ButtonContent>
           </Button>
         </S.FilterWrap>
         {loading ? (
@@ -77,7 +74,7 @@ const HomePage = () => {
         ) : (
           <S.Content>
             {fruits.map((item) => {
-              const cartItem = cart?.find((c) => c.fruits.id === item.id);
+              const cartItem = cart?.find((c) => c.id === item.id);
               return <Card key={item.id} item={item} cartItem={cartItem} />;
             })}
           </S.Content>

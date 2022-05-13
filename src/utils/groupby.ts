@@ -9,6 +9,5 @@ export const groupBy = <T>(items: T[], key: keyof T) => {
     return acc;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }, {} as any);
-
   return groupedResult;
 };

@@ -5,6 +5,7 @@ import { PrimeText, Button } from 'components/atoms';
 import { comma } from 'utils/comma';
 import { Cart } from 'interfaces/models/cart';
 import { AppContext } from 'contexts';
+
 interface Props {
   item: Fruits;
   cartItem?: Cart;
@@ -29,26 +30,35 @@ const Card = (props: Props) => {
             <S.InfoText className="price">{comma(item.price)}원</S.InfoText>
             <S.InfoFlexBox>
               <S.InfoLabel>잔량</S.InfoLabel>
-              <S.InfoText>{item.stock}</S.InfoText>
+              <S.InfoText>{item.stock - (cartItem?.quantity || 0)}</S.InfoText>
             </S.InfoFlexBox>
-            <S.InfoFlexBox>
-              <S.InfoLabel>수량</S.InfoLabel>
-              <S.InfoText>0</S.InfoText>
-            </S.InfoFlexBox>
+            {cartItem && cartItem.quantity > 0 && (
+              <S.InfoFlexBox>
+                <S.InfoLabel>수량</S.InfoLabel>
+                <S.InfoText>{cartItem?.quantity}</S.InfoText>
+              </S.InfoFlexBox>
+            )}
           </S.InfoWrap>
         </S.Item>
 
         <S.ContentBottom>
-          <Button
-            buttonType="Default"
-            sx={{ margin: '0 17px 0 0' }}
-            onClick={() => decrease(item.id)}
-          >
-            빼기
-          </Button>
+          {cartItem && cartItem.quantity > 0 && (
+            <Button
+              buttonType="Default"
+              sx={{ margin: '0 17px 0 0' }}
+              onClick={() => decrease(item)}
+            >
+              빼기
+            </Button>
+          )}
           <Button
             buttonType={item.isPrime ? 'Prime' : 'Primary'}
-            onClick={() => increase(item.id)}
+            onClick={() => {
+              if (item.stock > 0) {
+                increase(item);
+              }
+            }}
+            disabled={item.stock === cartItem?.quantity}
           >
             담기
           </Button>

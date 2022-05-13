@@ -19,6 +19,7 @@ const useLocations = () => {
   }, [location]);
   return {
     location: state,
+    path: location.pathname,
   };
 };
 
