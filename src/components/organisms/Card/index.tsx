@@ -8,7 +8,6 @@ interface Props {
 }
 const Card = (props: Props) => {
   const { item } = props;
-  console.log(item);
   return (
     <S.CardContainer>
       <S.Content>

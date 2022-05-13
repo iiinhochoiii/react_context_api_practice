@@ -7,7 +7,7 @@ export const CardContainer = styled.article`
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.02);
   border-radius: 16px;
   padding: 12px 17px 16px 16px;
-  margin: 0 25px;
+  margin: 0 25px 48px 25px;
 `;
 
 export const Content = styled.div`
