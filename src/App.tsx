@@ -4,17 +4,20 @@ import HomePage from './pages/Home';
 import { GlobalStyle } from 'styles/global-styles';
 import { ThemeProvider } from 'styled-components';
 import { theme } from 'styles/theme';
+import Store from 'contexts';
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-        </Routes>
-      </BrowserRouter>
-    </ThemeProvider>
+    <Store>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
+    </Store>
   );
 }
 

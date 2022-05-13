@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { AppContext } from 'contexts';
 import BaseTemplates from 'components/templates/Base';
 import * as S from './style';
 import { Button, PrimeText, LoadingText } from 'components/atoms';
@@ -10,6 +11,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { groupBy } from 'utils/groupby';
 
 const HomePage = () => {
+  const { cart } = useContext(AppContext);
+
   const navigate = useNavigate();
   const { data, loading, getList } = useApi<Fruits>('fruits');
   const [fruits, setFruits] = useState<Fruits[]>([]);
@@ -73,9 +76,10 @@ const HomePage = () => {
           <LoadingText />
         ) : (
           <S.Content>
-            {fruits.map((item) => (
-              <Card key={item.id} item={item} />
-            ))}
+            {fruits.map((item) => {
+              const cartItem = cart?.find((c) => c.fruits.id === item.id);
+              return <Card key={item.id} item={item} cartItem={cartItem} />;
+            })}
           </S.Content>
         )}
       </S.Container>
