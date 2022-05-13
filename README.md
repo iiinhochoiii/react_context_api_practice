@@ -1,46 +1,55 @@
-# Getting Started with Create React App
+# 크몽 front-end 사전 과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 과제 참고 내용
+- 기간: 5.12(목) 18:00 ~ 5.14(토) 18:00 (48시간)
 
-## Available Scripts
+## 세팅
 
-In the project directory, you can run:
+- Language & Library: Typescript, React
+- 전역상태 관리: Context API
+- 스타일링: Styled-component
+- Etc: Eslint, Prettier 등등
 
-### `npm start`
+## 데이터
+Mock data (./src/data/fruits.json) 파일을 생성하여, json-server을 실행하여, 임의의 api 서버를 열어주었습니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 실행 방법
 
-### `npm test`
+- node_modules 설치를 위해 다음과 같이 터미널에 입력해주세요.
+```js
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 설치가 완료 되었다면, 임의의 mock api를 띄우기 위해 다음과 같이 터미널에 입력해주세요.
 
-### `npm run build`
+```js
+npm run mockServer
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- api는 localhost port:4000으로 실행 되며, fruits 에 대한 api의 주소는 `http://localhost:4000/fruits` 입니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- node_modules와, mock server를 실행 시켰다면, 터미널에 `npm start` 를 입력하여, 프로젝트를 실행해주세요.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 프로젝트 관련 이미지
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- 메인 (http://localhost:3000)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![image](./public/static//home.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- 장바구니 (http://localhost:3000/cart)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![image](./public/static//cart.png)
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 추가 설명
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 전역 상태관리는, 규모가 크지 않아 따로 redux나 mobx, recoil 등의 전역 라이브러리를 설치하지 않고 Context API를 사용하여 전역 상태 관리를 하였습니다.
+
+- api는 임의로 mock 데이터를 생성하여, axios.get을 통하여, 데이터를 불러 옵니다.
+
+- 또한, mock api의 한계로 인하여, 필터 (전체, 일반과일, prime 과일)을 선택 했을 때, 해당 필터에 맞게 api를 요청 할 수 없어, 전체 list를 불러 온 후, 필터에 맞게 가공하였습니다.
