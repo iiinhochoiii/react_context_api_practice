@@ -8,6 +8,10 @@ export const CardCartContainer = styled.article`
   border-radius: 16px;
   padding: 12px 17px 16px 16px;
   margin: 0 0 48px 0;
+
+  @media screen and (max-width: 876px) {
+    width: 100%;
+  }
 `;
 
 export const Content = styled.div`

@@ -1,21 +1,37 @@
 import styled from 'styled-components';
 import { palette } from 'styled-tools';
 
-export const Container = styled.div`
+export const Container = styled.main`
   min-height: calc(100vh - 114px);
-  width: calc(100% - 560px);
+  width: 75%;
   margin: 0 auto 50px auto;
   position: relative;
+
+  @media screen and (max-width: 1146px) {
+    width: 85%;
+  }
+
+  @media screen and (max-width: 988px) {
+    width: 92%;
+  }
+
+  @media screen and (max-width: 876px) {
+    width: 75%;
+  }
+
+  @media screen and (max-width: 558px) {
+    width: 85%;
+  }
 `;
 
-export const Content = styled.div`
+export const Content = styled.section`
   margin: 48px 0 0 0;
   justify-content: space-between;
   display: flex;
   flex-wrap: wrap;
 `;
 
-export const PaymentWrap = styled.div`
+export const PaymentWrap = styled.section`
   margin: 0 0 0 auto;
   width: 300px;
 `;

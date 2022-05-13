@@ -2,12 +2,29 @@ import styled from 'styled-components';
 import { palette } from 'styled-tools';
 
 export const CardContainer = styled.article`
-  width: 27.5%;
+  width: 27.4%;
   background-color: ${palette('White')};
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.02);
   border-radius: 16px;
   padding: 12px 17px 16px 16px;
   margin: 0 25px 48px 25px;
+
+  @media screen and (max-width: 1460px) {
+    margin: 0 20px 48px 20px;
+  }
+
+  @media screen and (max-width: 1302px) {
+    margin: 0 15px 48px 15px;
+  }
+
+  @media screen and (max-width: 1146px) {
+    width: 45%;
+    margin: 48px 0 0 0;
+  }
+
+  @media screen and (max-width: 876px) {
+    width: 100%;
+  }
 `;
 
 export const Content = styled.div`
@@ -34,6 +51,10 @@ export const ImageWrap = styled.div`
   font-size: 100px;
   font-weight: 700;
   margin: auto 41px auto 25px;
+
+  @media screen and (max-width: 876px) {
+    width: 150px;
+  }
 `;
 
 export const InfoWrap = styled.div`

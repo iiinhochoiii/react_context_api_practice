@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import * as S from './style';
 import { Button } from 'components/atoms';
 import useLocations from 'hooks/useLocations';
 import { useNavigate } from 'react-router-dom';
-
+import { AppContext } from 'contexts';
 const Header = () => {
+  const { cart } = useContext(AppContext);
   const { path } = useLocations();
   const navigate = useNavigate();
 
@@ -20,12 +21,17 @@ const Header = () => {
           >
             상품목록
           </Button>
-          <Button
-            buttonType={path === '/cart' ? 'Default' : 'Normal'}
-            onClick={() => navigate('/cart')}
-          >
-            장바구니
-          </Button>
+          <S.ButtonContent>
+            <Button
+              buttonType={path === '/cart' ? 'Default' : 'Normal'}
+              onClick={() => navigate('/cart')}
+            >
+              장바구니
+            </Button>
+            <S.Badge>
+              <p>{cart.length}</p>
+            </S.Badge>
+          </S.ButtonContent>
         </S.ButtonWrap>
       </S.Container>
     </S.Header>
