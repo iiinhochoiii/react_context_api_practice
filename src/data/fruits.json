@@ -95,6 +95,14 @@
             "stock": 10,
             "price": 11000,
             "isPrime": true
+        },
+        {
+            "id": 12,
+            "name": "딸기",
+            "image": "🍓",
+            "stock": 10,
+            "price": 6000,
+            "isPrime": false
         }
     ]
 }

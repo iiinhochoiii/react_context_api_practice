@@ -4,56 +4,62 @@ import * as S from './style';
 import { Button, PrimeText, LoadingText } from 'components/atoms';
 import { Card } from 'components/organisms';
 import useApi from 'hooks/useApi';
+import useLocations from 'hooks/useLocations';
 import { Fruits } from 'interfaces/models/fruits';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { groupBy } from 'utils/groupby';
 
 const HomePage = () => {
-  const { data, loading } = useApi<Fruits>('fruits');
+  const navigate = useNavigate();
+  const { data, loading, getList } = useApi<Fruits>('fruits');
   const [fruits, setFruits] = useState<Fruits[]>([]);
-  const [tab, setTab] = useState('all');
+  const { location } = useLocations();
 
   useEffect(() => {
     if (data.length > 0) {
-      if (tab === 'all') {
+      if (location?.tab === 'all' || location?.tab === undefined) {
         const sortObj = groupBy<Fruits>(data, 'isPrime');
 
         setFruits([...sortObj['true'], ...sortObj['false']]);
       } else {
         setFruits(
           data.filter((item) =>
-            tab === 'normal' ? !item.isPrime : item.isPrime
+            location?.tab === 'normal' ? !item.isPrime : item.isPrime
           )
         );
       }
     }
-  }, [tab, data]);
+  }, [data]);
 
-  const onClickHandler = (tab: string) => {
-    setTab(tab);
-  };
+  useEffect(() => {
+    getList();
+  }, [location]);
 
   return (
     <BaseTemplates>
       <S.Container>
         <S.FilterWrap>
           <Button
-            buttonType={tab === 'all' ? 'Primary' : 'Normal'}
-            onClick={() => onClickHandler('all')}
+            buttonType={
+              location?.tab === 'all' || location?.tab === undefined
+                ? 'Primary'
+                : 'Normal'
+            }
+            onClick={() => navigate('/?tab=all')}
           >
-            <Link to="/">전체</Link>
+            전체
           </Button>
           <Button
-            buttonType={tab === 'normal' ? 'Primary' : 'Normal'}
+            buttonType={location?.tab === 'normal' ? 'Primary' : 'Normal'}
             sx={{ margin: '0 16px 0 19px' }}
-            onClick={() => onClickHandler('normal')}
+            onClick={() => navigate('/?tab=normal')}
           >
             <Link to="/?tab=nomal">일반 과일</Link>
             {/* 일반 과일 */}
           </Button>
           <Button
-            buttonType={tab === 'prime' ? 'Primary' : 'Normal'}
-            onClick={() => onClickHandler('prime')}
+            buttonType={location?.tab === 'prime' ? 'Primary' : 'Normal'}
+            onClick={() => navigate('/?tab=prime')}
           >
             <Link to="/?tab=prime">
               <S.ButtonContent>

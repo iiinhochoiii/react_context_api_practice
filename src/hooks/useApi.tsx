@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'utils/axios';
 
 const useApi = <T,>(
@@ -6,13 +6,11 @@ const useApi = <T,>(
 ): {
   data: T[];
   loading: boolean;
+  getList: () => void;
 } => {
   const [data, setData] = useState<T[]>([]);
-  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    getList();
-  }, []);
+  const [loading, setLoading] = useState(false);
 
   const getList = async (): Promise<void> => {
     try {
@@ -26,7 +24,7 @@ const useApi = <T,>(
     }
   };
 
-  return { data, loading };
+  return { data, loading, getList };
 };
 
 export default useApi;

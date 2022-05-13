@@ -19,6 +19,5 @@ export const ButtonContent = styled.div`
 export const Content = styled.div`
   margin: 48px -25px 0 -25px;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
 `;

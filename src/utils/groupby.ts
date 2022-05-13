@@ -5,6 +5,7 @@ export const groupBy = <T>(items: T[], key: keyof T) => {
     }
 
     acc[cur[key]].push(cur);
+
     return acc;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }, {} as any);
