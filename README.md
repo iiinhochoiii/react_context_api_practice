@@ -32,6 +32,10 @@ npm run mockServer
 
 - node_modules와, mock server를 실행 시켰다면, 터미널에 `npm start` 를 입력하여, 프로젝트를 실행해주세요.
 
+```js
+npm start
+```
+
 ---
 
 ## 프로젝트 관련 이미지
