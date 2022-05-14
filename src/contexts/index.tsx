@@ -75,8 +75,6 @@ const Store = (props: Props) => {
   const clear = () => {
     if (cart.length > 0) {
       setCart([]);
-    } else {
-      alert('장바구니에 담긴 과일이 없습니다.');
     }
   };
 

@@ -9,6 +9,7 @@ import { comma } from 'utils/comma';
 import { Cart } from 'interfaces/models/cart';
 import { Fruits } from 'interfaces/models/fruits';
 import { groupBy } from 'utils/groupby';
+import axios from 'utils/axios';
 
 const CartPage = () => {
   const { cart, clear } = useContext(AppContext);
@@ -61,6 +62,30 @@ const CartPage = () => {
     }
   }, [cart]);
 
+  const purchase = async (): Promise<void> => {
+    try {
+      const purchaseData = cart.map((c) => {
+        return {
+          id: c.id,
+          quantity: c.quantity,
+        };
+      });
+
+      if (purchaseData.length > 0) {
+        //
+        // 현재 구매하기 api는 mock data api로 구현이 되지않아, api가 있다고 가정하여 post 로 요청 하였습니다.
+        // 또한, 구현되지 않은 api로 요청하여 err가 발생하여, catch로 넘어가서, clear()가 동작하지 않아, 주석처리 하였습니다.
+        // await axios.post('/api/purchase', purchaseData);
+        //
+        clear(); // cart 비우기 (context api)
+      } else {
+        alert('장바구니에 담긴 과일이 없습니다.');
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <BaseTemplates>
       <S.Container>
@@ -105,7 +130,7 @@ const CartPage = () => {
             <Button
               buttonType="Primary"
               sx={{ padding: '9px 15px' }}
-              onClick={() => clear()}
+              onClick={() => purchase()}
             >
               결제하기
             </Button>

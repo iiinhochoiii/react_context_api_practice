@@ -53,3 +53,7 @@ npm run mockServer
 - api는 임의로 mock 데이터를 생성하여, axios.get을 통하여, 데이터를 불러 옵니다.
 
 - 또한, mock api의 한계로 인하여, 필터 (전체, 일반과일, prime 과일)을 선택 했을 때, 해당 필터에 맞게 api를 요청 할 수 없어, 전체 list를 불러 온 후, 필터에 맞게 가공하였습니다.
+
+- 현재 구매하기 api는 mock data api로 구현에 한계가 있어, api가 있다고 가정하여 post 로 요청 하였습니다.
+
+- 구현되지 않은 api로 요청하여 err가 발생하여, catch로 넘어가서, clear()가 동작하지 않아, api 요청하는 부분은 주석처리 하였습니다.
