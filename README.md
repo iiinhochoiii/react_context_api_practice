@@ -1,15 +1,3 @@
-# 크몽 front-end 사전 과제
-
-## 과제 참고 내용
-- 기간: 5.12(목) 18:00 ~ 5.14(토) 18:00 (48시간)
-
-## 세팅
-
-- Language & Library: Typescript, React
-- 전역상태 관리: Context API
-- 스타일링: Styled-component
-- Etc: Eslint, Prettier 등등
-
 ## 데이터
 Mock data (./src/data/fruits.json) 파일을 생성하여, json-server을 실행하여, 임의의 api 서버를 열어주었습니다.
 
@@ -36,28 +24,8 @@ npm run mockServer
 npm start
 ```
 
----
-
-## 프로젝트 관련 이미지
-
-- 메인 (http://localhost:3000)
-
-![image](./public/static//home.png)
-
-- 장바구니 (http://localhost:3000/cart)
-
-![image](./public/static//cart.png)
-
----
-
 ## 추가 설명
 
 - 전역 상태관리는, 규모가 크지 않아 따로 redux나 mobx, recoil 등의 전역 라이브러리를 설치하지 않고 Context API를 사용하여 전역 상태 관리를 하였습니다.
 
 - api는 임의로 mock 데이터를 생성하여, axios.get을 통하여, 데이터를 불러 옵니다.
-
-- 또한, mock api의 한계로 인하여, 필터 (전체, 일반과일, prime 과일)을 선택 했을 때, 해당 필터에 맞게 api를 요청 할 수 없어, 전체 list를 불러 온 후, 필터에 맞게 가공하였습니다.
-
-- 현재 구매하기 api는 mock data api로 구현에 한계가 있어, api가 있다고 가정하여 post 로 요청 하였습니다.
-
-- 구현되지 않은 api로 요청하여 err가 발생하여, catch로 넘어가서, clear()가 동작하지 않아, api 요청하는 부분은 주석처리 하였습니다.

@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <S.Header>
       <S.Container>
-        <S.HeaderText>크몽이네 과일가게</S.HeaderText>
+        <S.HeaderText>과일가게</S.HeaderText>
         <S.ButtonWrap>
           <Button
             buttonType={path === '/' ? 'Default' : 'Normal'}
