@@ -1,3 +1,9 @@
+## 설명
+- Context API를 활용한 전역상태를 사용 해보고자 만든 프로젝트
+- Atomic pattern을 활용한 재사용 가능한 컴포넌트 개발
+- custom hook 연습을 위한 프로젝트
+
+
 ## 데이터
 Mock data (./src/data/fruits.json) 파일을 생성하여, json-server을 실행하여, 임의의 api 서버를 열어주었습니다.
 
